@@ -14,8 +14,10 @@ app.use(express.json());
 
 app.use([extractRouter, authRouter]);
 
-app.listen(process.env.PORT, () => {
+const port = process.env.PORT || 5000;
 
-    console.log('Server is running on PORT ' + process.env.PORT);
+app.listen(port, () => {
+
+    console.log('Server running in PORT: ' + port);
 
 });
