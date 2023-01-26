@@ -26,9 +26,10 @@ export async function signIn(req, res) {
 
     const { userToken, user } = res.locals;
 
+
     try {
 
-        await db.collection('sessions').insertOne({ token: userToken, userId: user._id });
+        await db.collection('sessions').insertOne({ userToken, userId: user._id });
 
         res.status(200).send({ userToken, user });
 
